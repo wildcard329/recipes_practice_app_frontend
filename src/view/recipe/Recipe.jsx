@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteButton from '../components/buttons/DeleteButton.jsx';
 
 function Recipe(props) {
     const recipes = props.recipes;
@@ -12,6 +13,7 @@ function Recipe(props) {
                         <p>{recipe.description}</p>
                         <p>{recipe.ingredients}</p>
                         <p>{recipe.instructions}</p>
+                        <DeleteButton id={recipe.id} />
                     </div>
                 );
             })};

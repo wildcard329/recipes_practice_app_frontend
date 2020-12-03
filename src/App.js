@@ -1,10 +1,10 @@
 import './App.css';
-import Dashboard from './view/dashboard/Dashboard';
+import AppRouter from './view/routes/AppRouter';
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
+      <AppRouter />
     </div>
   );
 }
