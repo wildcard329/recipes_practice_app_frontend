@@ -15,11 +15,10 @@ function AddRecipeForm() {
 
     const submitRecipe = e => {
         e.preventDefault();
+        console.log(recipe)
         axios.post('http://localhost:5000/api/recipes/', recipe)
-            .then(res => {
-                console.log('output: ', res)
-            })
-    }
+            .catch(err => console.error(err.message))
+    };
 
     return(
         <div>

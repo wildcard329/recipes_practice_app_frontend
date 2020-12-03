@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RecipesList from '../components/lists/RecipesList.jsx';
-import Recipe from '../components/Recipe.jsx';
-import AddRecipeForm from '../components/forms/AddRecipeForm.jsx';
+import Recipe from '../recipe/Recipe.jsx';
 
 function Dashboard() {
     const [recipes, setRecipes] = useState([]);
@@ -20,7 +19,6 @@ function Dashboard() {
         <div>
             <RecipesList recipes={recipes} />
             <Recipe recipes={recipes} />
-            <AddRecipeForm />
         </div>
     );
 };
