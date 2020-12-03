@@ -1,8 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 function RecipesList(props) {
     const recipes = props.recipes;
-    
+    const history = useHistory();
+
+    const addRecipe = e => {
+        e.preventDefault();
+        history.push('/recipes/add')
+    }
+
     return(
         <div>
             {recipes && recipes.map(recipe => {
@@ -13,6 +20,7 @@ function RecipesList(props) {
                     </div>
                 );
             })};
+            <button onClick={addRecipe}>Add Recipe</button>
         </div>
     );
 };

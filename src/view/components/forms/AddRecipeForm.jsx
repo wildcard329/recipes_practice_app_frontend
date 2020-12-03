@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function AddRecipeForm() {
     const [recipe, setRecipe] = useState({
@@ -8,6 +9,7 @@ function AddRecipeForm() {
         ingredients: '',
         instructions: ''
     })
+    const history = useHistory();
 
     const enterRecipe = e => {
         setRecipe({...recipe, [e.target.name]: e.target.value});
@@ -17,6 +19,7 @@ function AddRecipeForm() {
         e.preventDefault();
         axios.post('http://localhost:5000/api/recipes/', recipe)
             .catch(err => console.error(err.message))
+        history.push('/')
     };
 
     return(
