@@ -4,8 +4,8 @@ import RecipeService from '../model/services/RecipeServices.js';
 
 class RecipeController{
     async getRecipesList(){
-        const recipeList = await RecipeService.getRecipesList();
-        store.dispatch(Action.getRecipesList(recipeList));
+        const recipesList = await RecipeService.getRecipesList();
+        store.dispatch(Action.getRecipesList(recipesList));
     };
 };
 
