@@ -9,7 +9,7 @@ function ViewRecipeData({id}) {
     const viewRecipeDetails = e => {
         e.preventDefault();
         RecipeController.getRecipeData(id)
-        history.push('/recipe')
+        history.push('/recipes/recipe')
     };
     return(
         <div>

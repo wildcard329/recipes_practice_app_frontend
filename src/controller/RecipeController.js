@@ -14,10 +14,16 @@ class RecipeController{
     };
 
     async addRecipeData(recipe) {
-        console.log('controller ',recipe)
         await RecipeService.addRecipeData(recipe);
-        store.dispatch(Action.addRecipeData(recipe))
-    }
+    };
+
+    async updateRecipeData(recipe) {
+        await RecipeService.updateRecipeData(recipe);
+    };
+
+    async deleteRecipe(id) {
+        await RecipeService.deleteRecipe(id);
+    };
 };
 
 export default new RecipeController();

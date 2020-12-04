@@ -18,7 +18,7 @@ function AddRecipeForm() {
     const submitRecipe = e => {
         e.preventDefault();
         RecipeController.addRecipeData(recipe);
-        history.push('/');
+        history.push('/recipes/all');
     };
 
     return(
