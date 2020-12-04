@@ -10,7 +10,7 @@ function Dashboard() {
 
     useEffect(() => {
         RecipeController.getRecipesList();
-    }, []);
+    }, [recipes]);
 
     return(
         <div>

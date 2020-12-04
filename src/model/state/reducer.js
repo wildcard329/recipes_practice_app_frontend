@@ -14,7 +14,6 @@ export const reducer = (state = initialState, action) => {
                 recipesList: [...action.recipesList]
             };
         case Actions.GET_RECIPE_DATA:
-            console.log('reducer ',action.recipeData)
             return {
                 ...state,
                 recipeData: {...action.recipeData}

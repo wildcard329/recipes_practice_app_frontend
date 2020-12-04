@@ -9,9 +9,15 @@ class RecipeController{
     };
 
     async getRecipeData(id) {
-        const recipeData = await RecipeService.getRecipeData();
-        store.dispatch(Action.getRecipeData(id));
+        const recipeData = await RecipeService.getRecipeData(id);
+        store.dispatch(Action.getRecipeData(recipeData));
     };
+
+    async addRecipeData(recipe) {
+        console.log('controller ',recipe)
+        await RecipeService.addRecipeData(recipe);
+        store.dispatch(Action.addRecipeData(recipe))
+    }
 };
 
 export default new RecipeController();
