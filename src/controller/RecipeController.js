@@ -17,6 +17,10 @@ class RecipeController{
         await RecipeService.addRecipeData(recipe);
     };
 
+    async updateRecipeRecord(recipe) {
+        store.dispatch(Action.updateRecipeRecord(recipe))
+    }
+
     async updateRecipeData(recipe) {
         await RecipeService.updateRecipeData(recipe);
     };

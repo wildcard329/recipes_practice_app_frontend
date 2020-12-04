@@ -9,14 +9,15 @@ function UpdateRecipeForm() {
     const recipe = useSelector(selectRecipeData)
     const history = useHistory();
     const [updatedRecipe, setUpdatedRecipe] = useState({
-        recipe_name: recipe.recipe_name || '',
-        description: recipe.description || '',
-        ingredients: recipe.ingredients || '',
-        instructions: recipe.instructions || ''
+        recipe_name: recipe.recipe_name,
+        description: recipe.description,
+        ingredients: recipe.ingredients,
+        instructions: recipe.instructions
     });
 
     const updateRecipe = e => {
         setUpdatedRecipe({...recipe, [e.target.name]: e.target.value});
+        RecipeController.updateRecipeRecord(updatedRecipe)
     };
 
     const submitRecipe = e => {

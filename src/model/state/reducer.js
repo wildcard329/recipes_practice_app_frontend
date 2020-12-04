@@ -18,6 +18,11 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 recipeData: {...action.recipeData}
             };
+        case Actions.UPDATE_RECIPE_RECORD:
+            return {
+                ...state,
+                recipeData: {...action.payload}
+            }
         default:
             return state;
     };
