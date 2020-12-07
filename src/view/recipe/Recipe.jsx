@@ -1,22 +1,24 @@
 import React from 'react';
-import DeleteButton from '../components/buttons/DeleteButton.jsx';
+import { useSelector } from 'react-redux';
 
-function Recipe(props) {
-    const recipes = props.recipes;
+import { selectRecipeData } from '../../model/state/selector.js';
+import DeleteButton from '../components/buttons/DeleteButton.jsx';
+import UpdateButton from '../components/buttons/UpdateButton.jsx';
+import BrowseRecipes from '../components/buttons/BrowseRecipes.jsx';
+
+
+function Recipe() {
+    const recipe = useSelector(selectRecipeData);
 
     return(
         <div>
-            {recipes && recipes.map(recipe => {
-                return(
-                    <div key={recipe.id}>
-                        <h2>{recipe.recipe_name}</h2>
-                        <p>{recipe.description}</p>
-                        <p>{recipe.ingredients}</p>
-                        <p>{recipe.instructions}</p>
-                        <DeleteButton id={recipe.id} />
-                    </div>
-                );
-            })};
+            <h2>{recipe.recipe_name}</h2>
+            <p>{recipe.description}</p>
+            <p>{recipe.ingredients}</p>
+            <p>{recipe.instructions}</p>
+            <BrowseRecipes />
+            <UpdateButton id={recipe.id} />
+            <DeleteButton id={recipe.id} />
         </div>
     );
 };

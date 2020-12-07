@@ -1,11 +1,15 @@
 import React from 'react';
-import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+import RecipeController from '../../../controller/RecipeController.js';
 
 function DeleteButton({id}) {
+    const history = useHistory();
 
     const deleteRecipe = e => {
         e.preventDefault();
-        axios.delete(`http://localhost:5000/api/recipes/${id}`)
+        RecipeController.deleteRecipe(id)
+        history.push('/recipes/all')
     }
 
     return(

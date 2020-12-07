@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import RecipeController from '../../../controller/RecipeController';
+import BrowseRecipes from '../buttons/BrowseRecipes';
 
 function AddRecipeForm() {
     const [recipe, setRecipe] = useState({
@@ -8,15 +10,21 @@ function AddRecipeForm() {
         ingredients: '',
         instructions: ''
     })
+    const history = useHistory();
 
     const enterRecipe = e => {
         setRecipe({...recipe, [e.target.name]: e.target.value});
     };
 
+    const cancel = e => {
+        e.preventDefault();
+        history.push('/recipes/all');
+    }
+
     const submitRecipe = e => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/recipes/', recipe)
-            .catch(err => console.error(err.message))
+        RecipeController.addRecipeData(recipe);
+        history.push('/recipes/all');
     };
 
     return(
@@ -39,6 +47,7 @@ function AddRecipeForm() {
                     <input id='instructions' type='text' name='instructions' onChange={enterRecipe} />
                 </div>
                 <div>
+                    <button onClick={cancel}>Cancel</button>
                     <button onSubmit={submitRecipe}>Submit</button>
                 </div>
             </form>

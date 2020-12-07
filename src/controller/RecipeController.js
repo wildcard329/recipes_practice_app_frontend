@@ -7,6 +7,27 @@ class RecipeController{
         const recipesList = await RecipeService.getRecipesList();
         store.dispatch(Action.getRecipesList(recipesList));
     };
+
+    async getRecipeData(id) {
+        const recipeData = await RecipeService.getRecipeData(id);
+        store.dispatch(Action.getRecipeData(recipeData));
+    };
+
+    async addRecipeData(recipe) {
+        await RecipeService.addRecipeData(recipe);
+    };
+
+    async updateRecipeRecord(recipe) {
+        store.dispatch(Action.updateRecipeRecord(recipe))
+    }
+
+    async updateRecipeData(recipe) {
+        await RecipeService.updateRecipeData(recipe);
+    };
+
+    async deleteRecipe(id) {
+        await RecipeService.deleteRecipe(id);
+    };
 };
 
 export default new RecipeController();
