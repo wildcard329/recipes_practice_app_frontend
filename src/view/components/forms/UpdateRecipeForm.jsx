@@ -17,11 +17,16 @@ function UpdateRecipeForm() {
 
     const updateRecipe = e => {
         setUpdatedRecipe({...recipe, [e.target.name]: e.target.value});
-        RecipeController.updateRecipeRecord(updatedRecipe)
+    };
+
+    const cancel = e => {
+        e.preventDefault();
+        history.push('/recipes/recipe');
     };
 
     const submitRecipe = e => {
         e.preventDefault();
+        console.log(updatedRecipe)
         RecipeController.updateRecipeData(updatedRecipe);
         history.push('/recipes/all');
     };
@@ -46,6 +51,7 @@ function UpdateRecipeForm() {
                     <input id='instructions' type='text' name='instructions' placeholder={recipe.instructions} onChange={updateRecipe} />
                 </div>
                 <div>
+                    <button onClick={cancel}>Cancel</button>
                     <button onSubmit={submitRecipe}>Submit</button>
                 </div>
             </form>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import RecipeController from '../../../controller/RecipeController';
+import BrowseRecipes from '../buttons/BrowseRecipes';
 
 function AddRecipeForm() {
     const [recipe, setRecipe] = useState({
@@ -14,6 +15,11 @@ function AddRecipeForm() {
     const enterRecipe = e => {
         setRecipe({...recipe, [e.target.name]: e.target.value});
     };
+
+    const cancel = e => {
+        e.preventDefault();
+        history.push('/recipes/all');
+    }
 
     const submitRecipe = e => {
         e.preventDefault();
@@ -41,6 +47,7 @@ function AddRecipeForm() {
                     <input id='instructions' type='text' name='instructions' onChange={enterRecipe} />
                 </div>
                 <div>
+                    <button onClick={cancel}>Cancel</button>
                     <button onSubmit={submitRecipe}>Submit</button>
                 </div>
             </form>
